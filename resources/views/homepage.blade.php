@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
-    <title>Document</title>
+    <title>Ranmits</title>
 </head>
 
 <body>
@@ -31,7 +31,10 @@
                 <p class="sub-title-1">Kehilangan kendaraan Anda? Kami tahu perasaan itu, dan kami hadir untuk membantu
                     menemukan kembali
                     kendaraan anda!</p>
-                <img class="menu" src="<?php echo asset('images/laporkan_button.png'); ?>" alt="">
+                <button class="laporkan-kehilangan-btn">
+                    <img class="menu" src="<?php echo asset('images/laporkan-kehilangan.png'); ?>" alt="">
+                    <p>Laporkan Kehilangan</p>
+                </button>
             </div>
             <div class="container-2">
                 <img class="menu" src="<?php echo asset('images/speakerphone.png'); ?>" alt="">
@@ -54,7 +57,11 @@
                         <p class="banyak-kejadian">6</p>
                         <p class="kejadian">Kejadian</p>
                     </div>
-                    <img class="kasus-meningkat" src="<?php echo asset('images/kasus_meningkat.png'); ?>" alt="">
+                    <div class="kasus-meningkat">
+                        <img src="<?php echo asset('images/trending-up.png'); ?>" alt="">
+                        <p>Kasus Meningkat</p>
+                    </div>
+
                 </div>
             </div>
             <div class="title-3">
@@ -86,80 +93,24 @@
                         <div class="details">
                             <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
                             <p class="deskripsi-title">
-                                Deskripsi Kendaraan
+                                Waktu Kejadian
                             </p>
                             <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
                         </div>
                         <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
+                            <img class="tag" src="<?php echo asset('images/location-marker.png'); ?>" alt="">
                             <p class="deskripsi-title">
-                                Deskripsi Kendaraan
+                                Terakhir Dilihat
                             </p>
                             <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
                         </div>
                     </div>
                 </div>
-                <img class="tombol-hubungi-pemilik" src="<?php echo asset('images/tombol_hubugi_pemilik.png'); ?>" alt="">
-            </div>
-            <div class="container-5">
-                <img class="gambar-motor-beat" src="<?php echo asset('images/motor_beat.png'); ?>" alt="">
-                <div class="informasi-kendaraan">
-                    <p class="plat-nomor">W 1234 PL</p>
-                    <div class="informasi-kendaran-details">
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                    </div>
-                </div>
-                <img class="tombol-hubungi-pemilik" src="<?php echo asset('images/tombol_hubugi_pemilik.png'); ?>" alt="">
-            </div>
-            <div class="container-5">
-                <img class="gambar-motor-beat" src="<?php echo asset('images/motor_beat.png'); ?>" alt="">
-                <div class="informasi-kendaraan">
-                    <p class="plat-nomor">W 1234 PL</p>
-                    <div class="informasi-kendaran-details">
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                        <div class="details">
-                            <img class="tag" src="<?php echo asset('images/tag.png'); ?>" alt="">
-                            <p class="deskripsi-title">
-                                Deskripsi Kendaraan
-                            </p>
-                            <p class="isi-deskripsi">Honda Beat 115 | Warna Hitam | 2019</p>
-                        </div>
-                    </div>
-                </div>
-                <img class="tombol-hubungi-pemilik" src="<?php echo asset('images/tombol_hubugi_pemilik.png'); ?>" alt="">
+                <button class="hubungi-pemilik-btn">
+                    <img class="" src="<?php echo asset('images/phone.png'); ?>" alt="">
+                    <p>Hubungi Pemilik</p>
+                </button>
+
             </div>
         </div>
     </div>

@@ -1,0 +1,86 @@
+body{
+    background-color: grey;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+}
+
+p{
+    font-family: 'Poppins', sans-serif;
+}
+
+.background {
+    background-color: #F9FAFB;
+    width: 375px;
+    height: 3060px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    width: 375px;
+    height: 77.23px;
+}
+
+.navbar > .logo {
+    padding-left: 24px;
+    width: 106.61px;
+}
+
+.navbar > .menu {
+    padding-right: 24px;
+    width: 28px;
+}
+
+.body {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* padding: 24px; */
+    margin: 24px;
+}
+
+.login-container {
+    margin-top: 60px;
+    height: 339px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.login-title {
+    font-size: 24px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.text-field {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 146px;
+    width: 100%;
+}
+
+.fields {
+    height: 66px;
+    width: 327px;
+}
+.fields p{
+
+    font-size: 14px;
+    font-weight: 400;
+    margin: 0px;
+    }
+
+.text-input {
+    height: 42px;
+    width: 100%;
+    border: 1px solid #C9C9C9;
+    border-radius: 8px;
+
+}

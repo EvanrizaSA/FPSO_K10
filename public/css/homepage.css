@@ -81,9 +81,26 @@ p{
     text-align: center;
 }
 
-.container-1 img {
-    margin: 0;
+.container-1 .laporkan-kehilangan-btn{
+    height: 44px;
     width: 235px;
+    border-radius: 8px;
+    border: 0px;
+    display: flex;
+    background-color: #1C64F2;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container-1 .laporkan-kehilangan-btn > img {
+    height: 24px;
+    width: 24px;
+}
+
+.container-1 .laporkan-kehilangan-btn > p {
+    font-size: 14px;
+    font-weight: 400;
+    color: white;
 }
 
 .container-2 {
@@ -216,6 +233,25 @@ p{
 .container-3 .kasus-meningkat {
     width: 147px;
     height: 32px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #FBD5D5;
+    border-radius: 24px;
+
+}
+
+.container-3 .kasus-meningkat > img{
+    width: 20px;
+    height: 20px;
+
+}
+
+.container-3 .kasus-meningkat > p{
+
+    font-size: 10px;
+    color: #E02424;
+
 }
 
 .title-3{
@@ -247,6 +283,16 @@ p{
     align-items: center;
     width: 76px;
     height: 100%;
+    border: 1px solid #D1D5DB;
+    border-radius: 24px;
+}
+
+.container-4 .semua:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 100%;
     background-color: #1C64F2;
     border-radius: 24px;
 }
@@ -267,6 +313,16 @@ p{
     border-radius: 24px;
 }
 
+.container-4 .motor:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 100%;
+    background-color: #1C64F2;
+    border-radius: 24px;
+}
+
 .container-4 .mobil {
     display: flex;
     justify-content: center;
@@ -277,8 +333,18 @@ p{
     border-radius: 24px;
 }
 
+.container-4 .mobil:hover{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 100%;
+    background-color: #1C64F2;
+    border-radius: 24px;
+}
+
 .container-4 .semua {
-    color: white;
+    color: #D1D5DB;
 }
 
 .container-4 .motor {
@@ -331,7 +397,7 @@ p{
 
 .container-5 .details{
     height: 34px;
-    width: 181px;
+    width: 187px;
     display: grid;
     grid-template-columns: 14px auto;
     grid-template-rows: auto auto;
@@ -357,12 +423,33 @@ p{
     color: #575757;
 }
 
-.container-5 .tombol-hubungi-pemilik {
+.container-5 .hubungi-pemilik-btn{
     margin-left: 16px;
     margin-bottom: 16px;
     height: 36px;
     width: 152px;
+    display: flex;
+    background-color: #1C64F2;
+    border: 0px;
+    border-radius: 8px;
+    align-items: center;
+    justify-content: space-around;
+
 }
+.container-5 .hubungi-pemilik-btn > img{
+    margin: 0px;
+    width: 14px;
+    height: 14px;
+}
+
+.container-5 .hubungi-pemilik-btn > p{
+    margin: 0px;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 400;
+}
+
 
 
 
