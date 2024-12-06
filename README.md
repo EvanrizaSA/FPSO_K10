@@ -7,6 +7,11 @@ This is our Final Project for the DevOps (A) class. This Final DevOps Project ai
 - Evanriza Safiq Ariadi - (5026211139) | <a href="https://github.com/EvanrizaSA">Github</a>
 - Dewangkoro Ramadhan Putra - (5026211167) | <a href="https://github.com/dewangkoroputra">Github</a>
 
+## Project Documentation
+
+<iframe src="https://docs.google.com/document/d/1yECMtCjy4x7LieEO0G_MZIfxiZ-xGr037UEWjfdmdeU/edit?usp=sharing/preview" width="100%" height="500"></iframe>
+
+
 ## About The Project
 
 RanmITS merupakan aplikasi yang bertujuan untuk mengurangi kasus pencurian kendaraan bermotor di lingkungan Institut Teknologi Sepuluh Nopember (ITS) dengan menyediakan platform berbasis web yang memungkinkan mahasiswa ITS dan petugas keamanan untuk saling terhubung dan berbagi informasi terkait kehilangan kendaraan.
