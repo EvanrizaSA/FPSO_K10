@@ -9,8 +9,7 @@ This is our Final Project for the DevOps (A) class. This Final DevOps Project ai
 
 ## Project Documentation
 
-<iframe src="https://docs.google.com/document/d/1yECMtCjy4x7LieEO0G_MZIfxiZ-xGr037UEWjfdmdeU/edit?usp=sharing/preview" width="100%" height="500"></iframe>
-
+[Lihat dokumen](https://docs.google.com/document/d/1yECMtCjy4x7LieEO0G_MZIfxiZ-xGr037UEWjfdmdeU/edit?usp=sharing/preview)
 
 ## About The Project
 
