@@ -24,7 +24,7 @@ jobs:
       # Step 2: Build Docker Image
       - name: Build Docker Image
         run: |
-          docker build --no-cache -t ranmits10 .
+          docker build -t ranmits10 .
 
       # Step 3: Save Docker Image to tarball
       - name: Save Docker Image
