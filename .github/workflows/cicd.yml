@@ -1,37 +1,113 @@
-name: CI/CD Pipeline
+name: Build and Deploy to AWS EC2
 
 on:
   push:
     branches:
-      - master
+      - master  # Pipeline berjalan setiap ada perubahan di branch `master`
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout code
+      # Step 1: Checkout Repository
+      - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
       - name: Install dependencies
         run: composer install
-      - name: Create .env file
-        run: echo "SITE_URL=${{ secrets.SITE_URL }}" >>.env
+
+      # Step 2: Build Docker Image
       - name: Build Docker Image
-        run: docker build -t deceitfull/fpso_kel10 -f ./.github/workflows/DockerFile .
-      - name: Login to DockerHub
-        run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - name: Publish Image to DockerHub
-        run: docker push deceitfull/fpso_kel10:latest
+        run: |
+          docker build --no-cache -t ranmits10 .
+
+      # Step 3: Save Docker Image to tarball
+      - name: Save Docker Image
+        run: |
+          docker save -o ranmits10.tar ranmits10
+
+      # Step 4: Upload Docker Image Artifact
+      - name: Upload Docker Image Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ranmits10-image
+          path: ranmits10.tar
+
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout Repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      # Step 2: Set Up JDK
+      - name: Set Up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Update ke Java 17
 
   deploy:
-    needs: build
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
+    needs: build  # Menunggu proses build selesai
+
     steps:
-      - name: Pull Image
-        run: docker pull deceitfull/fpso_kel10
-      - name: Delete old container
-        run: docker rm -f ranmits-container
-      - name: Run Docker Container
-        run: docker run -d -p 8080:8080 --name ranmits-container deceitfull/fpso_kel10
+      # Step 1: Download Docker Image Artifact
+      - name: Download Docker Image Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ranmits10-image
+
+      # Step 2: Upload Artifact to EC2
+      - name: SSH to EC2 and Prepare Deployment
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ubuntu  # Username Anda
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            # Buat direktori untuk upload file jika belum ada
+            mkdir -p ~/docker-images/
+
+            # Pastikan tidak ada tarball lama
+            rm -f ~/docker-images/ranmits10.tar
+
+      # Step 3: Upload Docker Tarball
+      - name: Upload Docker Tarball
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: ranmits10.tar
+          target: ~/docker-images/
+
+
+      # Step 4: Load Docker Image and Deploy
+      - name: SSH to EC2 and Deploy Container
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.EC2_PUBLIC_IP }}
+          username: ec2-user  # Username Anda
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            # Load Docker Image
+            docker load -i ~/docker-images/ranmits10.tar
+
+            # Stop dan Remove container lama jika ada
+            docker stop ranmits10-container || true
+            docker rm ranmits10-container || true
+
+            # Jalankan container baru
+            docker run -d --name ranmits10-container -p 80:80 ranmits10
+
+            # Bersihkan file tarball untuk menghemat ruang
+            rm -f ~/docker-images/ranmits10.tar
