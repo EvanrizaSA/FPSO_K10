@@ -7,7 +7,7 @@
 
     @vite('resources/css/app.css')
 
-    <title>Lapor Kehilangan</title>
+    <title>Laporr Kehilangan</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
