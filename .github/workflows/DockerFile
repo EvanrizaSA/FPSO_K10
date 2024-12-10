@@ -1,34 +1,10 @@
-FROM php:8.0-fpm-alpine
-
-# Build-time arguments
-ARG UID
-ARG GID
-ARG USER
-
-# User and group setup
-RUN delgroup dialout && \
-    addgroup -g ${GID} --system ${USER} && \
-    adduser -G ${USER} --system -D -s /bin/sh -u ${UID} ${USER}
-
-# Update PHP-FPM configuration
-RUN sed -i "s/user = www-data/user = ${USER}/g" /usr/local/etc/php-fpm.d/www.conf && \
-    sed -i "s/group = www-data/group = ${USER}/g" /usr/local/etc/php-fpm.d/www.conf && \
-    echo "php_admin_flag[log_errors] = on" >> /usr/local/etc/php-fpm.d/www.conf
-
-# Application directory
-RUN mkdir -p /var/www/html && \
-    chown -R ${USER}:${USER} /var/www/html
+FROM php:8.2-apache
+RUN mkdir -p /var/www/html
 WORKDIR /var/www/html
-
-# Install dependencies and PHP extensions
-RUN apk add --no-cache libpng libpng-dev jpeg-dev zip libzip-dev && \
-    docker-php-ext-configure gd --enable-gd --with-jpeg && \
-    docker-php-ext-install gd exif zip pdo pdo_mysql && \
-    pecl install redis && \
-    docker-php-ext-enable redis
-
-# Expose the PHP-FPM port
-EXPOSE 9000
-
-# Command to start PHP-FPM
-CMD ["php-fpm", "-y", "/usr/local/etc/php-fpm.conf", "-R"]
+COPY . .
+RUN apt-get update && apt-get install -y \
+    unzip \
+    && docker-php-ext-install pdo pdo_mysql
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer install --no-dev --optimize-autoloader
+EXPOSE 80
