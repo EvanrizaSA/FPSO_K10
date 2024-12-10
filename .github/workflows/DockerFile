@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 FROM php:8.2-apache
 WORKDIR /var/www/html
 COPY . .
@@ -6,5 +7,15 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 RUN composer install --no-dev --optimize-autoloader
+=======
+# Menggunakan Nginx untuk serve file HTML, CSS, dan JS
+FROM nginx:latest
+
+# Copy file ke direktori default Nginx
+COPY ./index.html /usr/share/nginx/html/
+COPY ./style.css /usr/share/nginx/html/
+
+# Expose port 80 untuk HTTP
+>>>>>>> b0c73f26187820790248e1c1f009abcd4efa6cff
 EXPOSE 80
 CMD ["apache2-foreground"]
