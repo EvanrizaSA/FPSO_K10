@@ -107,7 +107,7 @@ jobs:
             docker rm ranmits10-container || true
 
             # Jalankan container baru
-            docker run -d --name ranmits10-container -p 9000:9000 ranmits10
+            docker run -d --name ranmits10-container -p 80:80 ranmits10
 
             # Bersihkan file tarball untuk menghemat ruang
             rm -f ~/docker-images/ranmits10.tar
