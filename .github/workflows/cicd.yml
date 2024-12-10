@@ -24,7 +24,7 @@ jobs:
       # Step 2: Build Docker Image
       - name: Build Docker Image
         run: |
-          docker build -t ranmits10 .
+          docker build -t --no-cache ranmits10 -f ./.github/workflows/DockerFile .
 
       # Step 3: Save Docker Image to tarball
       - name: Save Docker Image
